@@ -29,18 +29,18 @@ func NewCacheMetricsServer(listenAddress string) *CacheMetrics {
 		return nil
 	}
 	totalHits := prometheus.NewCounterVec(prometheus.CounterOpts{
-		Name: "cache_total_hits",
+		Name: "lava_cache_total_hits",
 		Help: "The total number of hits the cache server managed to reply.",
 	}, []string{totalHitsKey})
 
 	totalMisses := prometheus.NewCounterVec(prometheus.CounterOpts{
-		Name: "cache_total_misses",
+		Name: "lava_cache_total_misses",
 		Help: "The total number of misses the cache server could not reply.",
 	}, []string{totalMissesKey})
 
 	apiSpecificsLabelNames := []string{"requested_block", "chain_id", "result"}
 	apiSpecifics := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name: "cache_api_specifics",
+		Name: "lava_cache_api_specifics",
 		Help: "api specific information",
 	}, apiSpecificsLabelNames)
 
